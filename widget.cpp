@@ -25,26 +25,9 @@ void Widget::changeMoney(int diff){
 }
 
 void Widget::changeStatus(void){
-    if(money < 100){
-        ui->pb_Coffee->setEnabled(false);
-        ui->pb_Tea->setEnabled(false);
-        ui->pb_Milk->setEnabled(false);
-    }
-    else if(money < 150){
-        ui->pb_Coffee->setEnabled(true);
-        ui->pb_Tea->setEnabled(false);
-        ui->pb_Milk->setEnabled(false);
-    }
-    else if(money < 200){
-        ui->pb_Coffee->setEnabled(true);
-        ui->pb_Tea->setEnabled(true);
-        ui->pb_Milk->setEnabled(false);
-    }
-    else{
-        ui->pb_Coffee->setEnabled(true);
-        ui->pb_Tea->setEnabled(true);
-        ui->pb_Milk->setEnabled(true);
-    }
+    ui->pb_Coffee->setEnabled(money <= 100);
+    ui->pb_Tea->setEnabled(money <= 150);
+    ui->pb_Milk->setEnabled(money <= 200);
 }
 
 void Widget::on_pb_10_clicked()
